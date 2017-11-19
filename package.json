@@ -1,0 +1,20 @@
+{
+  "name": "bettervoronoigenerator",
+  "version": "1.0.0",
+  "description": "Voronoi Generator for creating own designs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . "
+  },
+  "keywords": [
+    "voronoi",
+    "js"
+  ],
+  "author": "Michael Castano",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.7.9",
+    "paper": "^0.11.5",
+    "voronoi": "^1.0.0"
+  }
+}

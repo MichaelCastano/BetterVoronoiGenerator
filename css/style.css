@@ -1,0 +1,26 @@
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+
+/* Scale canvas with resize attribute to full size */
+
+canvas {
+    width: 800px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    background: url('../assets/TeleVorlageVoronoi.png');
+    background-size: contain;
+}
+
+#backgroundImage {
+    background: url('../assets/TeleVorlageVoronoi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
