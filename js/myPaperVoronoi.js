@@ -1,3 +1,10 @@
+//import { Path } from 'paper';
+
+var path = require('path');
+var remote = require('electron').remote;
+var fs = require('fs');
+var app = remote.app;
+
 var voronoi = new Voronoi();
 var sites = generateBeeHivePoints(view.size / 100, true);
 var bbox, diagram;
@@ -92,7 +99,7 @@ function createPath(points, center) {
             handleOut: vector
         });
     }
-    path.scale(0.95);
+    path.scale(0.75);
     removeSmallBits(path);
     return path;
 }
@@ -114,7 +121,23 @@ function onResize() {
 
 function onKeyDown(event) {
     if (event.key == 'space') {
+
         selected = !selected;
         renderDiagram();
+
+        var voronoiSVG = paper.project.exportSVG({ asString: true });
+        var baseFolder = app.getPath('downloads');
+        var filePath = path.join(baseFolder, 'test.svg');
+        fs.writeFile(filePath, voronoiSVG);
+
     }
 }
+
+/*function onKeyDown(event) {
+    if (event.key == 'x') {
+        var voronoiSVG = exportSVG();
+        var baseFolder = app.getPath('downloads');
+        var filePath = path.join(baseFolder, 'test.svg');
+        fs.writeFile(filePath, voronoiSVG);
+    }
+}*/

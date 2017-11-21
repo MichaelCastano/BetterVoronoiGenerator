@@ -3,16 +3,72 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Better Voronoi Generator</title>
+    <!--<title>Better Voronoi Generator</title>-->
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/photon.css">
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/menu.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/paper-full.js"></script>
     <script type="text/javascript" src="http://paperjs.org/assets/js/rhill-voronoi-core.js"></script>
     <script type="text/paperscript" src="js/myPaperVoronoi.js" canvas="myCanvas"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas"></canvas>
-    <!--<canvas id="backgroundImage"></canvas>-->
+    <div class="window">
+
+        <!-- .toolbar-header sits at the top of your app 
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Photon</h1>
+        </header>-->
+
+        <!-- Your app's content goes inside .window-content -->
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane pane-sm sidebar">
+
+                    <button id="test" onclick="test();">Open</button>
+                    <input type="button" id="btnEd" value="Get Data" onclick="test();" />
+
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Tools</h5>
+                        <span class="nav-group-item">
+                                <span class="icon icon-picture"></span> Load Image
+                        </span>
+                        <span class="nav-group-item">
+                                <span class="icon icon-light-up"></span> Generate Random Sites
+                        </span>
+                        <span class="nav-group-item">
+                                <span class="icon icon-download"></span> Import Sites
+                        </span>
+                        <span class="nav-group-item">
+                                <span class="icon icon-upload"></span> Export Sites
+                        </span>
+                        <span class="nav-group-item">
+                                <span class="icon icon-pencil"></span> Set Scale
+                        </span>
+                    </nav>
+                </div>
+
+                <div class="pane">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script>
+    document.addEventListener("keydown", function(e) {
+        if (e.which === 116) {
+            require('remote').getCurrentWindow().toggleDevTools();
+        } else if (e.which === 116) {
+            location.reload();
+        }
+    });
+</script>
 
 </html>

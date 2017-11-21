@@ -3,18 +3,27 @@ body {
     margin: 0;
     overflow: hidden;
     height: 100%;
+    width: 1200px;
+    height: 800px;
 }
 
+#sidebar {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
 
-/* Scale canvas with resize attribute to full size */
+#voronoiCanvas {
+    position: fixed;
+    left: 400px;
+    top: 0px;
+}
 
 canvas {
     width: 800px;
     height: 800px;
     margin: 0;
     padding: 0;
-    left: 0;
-    top: 0;
     background: url('../assets/TeleVorlageVoronoi.png');
     background-size: contain;
 }
