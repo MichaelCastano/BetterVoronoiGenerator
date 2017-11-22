@@ -1,0 +1,12 @@
+
+
+Ablauf für Import in Fusion:
+
+SVG Grafik anpassen:
+	von 800x800 px auf 450x450mm (96 DPI !!!) ändern
+	Rahmen anlegen
+	Als neues SVG speichern
+
+Import in Fusion:
+	Translation X: -225,00mm
+	Translation Y: -122,50mm
