@@ -29,10 +29,6 @@
         <div class="window-content">
             <div class="pane-group">
                 <div class="pane pane-sm sidebar">
-
-                    <button id="test" onclick="test();">Open</button>
-                    <input type="button" id="btnEd" value="Get Data" onclick="test();" />
-
                     <nav class="nav-group">
                         <h5 class="nav-group-title">Tools</h5>
                         <span class="nav-group-item">
@@ -51,6 +47,18 @@
                                 <span class="icon icon-pencil"></span> Set Scale
                         </span>
                     </nav>
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Shortcuts</h5>
+                        <span class="nav-group-item">
+                            Toggle View (Space)
+                        </span>
+                        <span class="nav-group-item">
+                            Save SVG (s)
+                        </span>
+                        <span class="nav-group-item">
+                            Remove last Site (z)
+                        </span>
+                    </nav>
                 </div>
 
                 <div class="pane">
@@ -60,15 +68,5 @@
         </div>
     </div>
 </body>
-
-<script>
-    document.addEventListener("keydown", function(e) {
-        if (e.which === 116) {
-            require('remote').getCurrentWindow().toggleDevTools();
-        } else if (e.which === 116) {
-            location.reload();
-        }
-    });
-</script>
 
 </html>

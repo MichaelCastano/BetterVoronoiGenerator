@@ -6,11 +6,10 @@ var fs = require('fs');
 var app = remote.app;
 
 var voronoi = new Voronoi();
-var sites = generateBeeHivePoints(view.size / 100, true);
+var sites = generateBeeHivePoints(view.size / 200, true);
 var bbox, diagram;
 var oldSize = view.size;
 var spotColor = new Color('rgba(180, 180, 180, 0.5)');
-var mousePos = view.center;
 var selected = false;
 
 onResize();
@@ -21,9 +20,8 @@ function onMouseDown(event) {
 }
 
 function onMouseMove(event) {
-    mousePos = event.point;
-    if (event.count == 0)
-        sites.push(event.point);
+    //if (event.count == 0)
+    //    sites.push(event.point);
     sites[sites.length - 1] = event.point;
     renderDiagram();
 }
@@ -124,20 +122,17 @@ function onKeyDown(event) {
 
         selected = !selected;
         renderDiagram();
+    }
 
+    if (event.key == 's') {
         var voronoiSVG = paper.project.exportSVG({ asString: true });
         var baseFolder = app.getPath('downloads');
         var filePath = path.join(baseFolder, 'test.svg');
         fs.writeFile(filePath, voronoiSVG);
+    }
 
+    if (event.key == 'z') {
+        sites.pop();
+        renderDiagram();
     }
 }
-
-/*function onKeyDown(event) {
-    if (event.key == 'x') {
-        var voronoiSVG = exportSVG();
-        var baseFolder = app.getPath('downloads');
-        var filePath = path.join(baseFolder, 'test.svg');
-        fs.writeFile(filePath, voronoiSVG);
-    }
-}*/
