@@ -11,8 +11,32 @@ var bbox, diagram;
 var oldSize = view.size;
 var spotColor = new Color('rgba(180, 180, 180, 0.5)');
 var selected = false;
+var scaleFactor = 95;
 
 onResize();
+
+// --- Slider ---
+var scaleSlider = document.getElementById("scaleSlider");
+scaleSlider.onchange = function() {
+    scaleFactor = this.value;
+    renderDiagram();
+}
+
+// --- Random --- randomButton
+var randomButton = document.getElementById("randomButton");
+randomButton.onclick = function() {
+    sites = generateRandomSites(100);
+}
+
+function generateRandomSites(number) {
+    window.alert("lalal");
+    var points = [];
+    for (var i = 0; i < number; i++) {
+        var point = new Point(Math.random() * view.size.width, Math.random() * view.size.height);
+        points.push(point);
+    }
+    return points;
+}
 
 function onMouseDown(event) {
     sites.push(event.point);
@@ -97,7 +121,7 @@ function createPath(points, center) {
             handleOut: vector
         });
     }
-    path.scale(0.75);
+    path.scale(scaleFactor / 100);
     removeSmallBits(path);
     return path;
 }

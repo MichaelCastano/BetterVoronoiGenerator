@@ -7,3 +7,5 @@ var app = remote.app;
 function showMyMessage() {
     remote.dialog.showMessageBox({ message: 'test', buttons: ["OK"] });
 }
+
+var randomButton = document.getElementById("randomButton");
