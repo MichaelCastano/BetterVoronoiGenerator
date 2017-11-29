@@ -29,7 +29,6 @@ randomButton.onclick = function() {
 }
 
 function generateRandomSites(number) {
-    window.alert("lalal");
     var points = [];
     for (var i = 0; i < number; i++) {
         var point = new Point(Math.random() * view.size.width, Math.random() * view.size.height);
